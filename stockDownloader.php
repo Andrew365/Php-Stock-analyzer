@@ -67,7 +67,7 @@ function fileToDatabase($txtfile, $tablename){
         VALUES ('$date','$open','$high','$low','$close','$volume','$change','$percent_change')";
         $result3 = mysqli_query($connect, $sql3);
 
-        //ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+        ini_set('max_execution_time', 60); //300 seconds = 5 minutes
 
         if($result3){
             echo 'success';
