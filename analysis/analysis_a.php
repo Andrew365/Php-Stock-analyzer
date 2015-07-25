@@ -16,7 +16,7 @@ function masterLoop(){
         $sumOfIncreases = 0;
         $sumOfDecreases = 0;
 
-
+        $total = 0;
 
         $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
 
@@ -42,14 +42,14 @@ function masterLoop(){
                     $tom_percent_change = $row[1];
 
                     if ($tom_percent_change > 0) {
-                        $nextDayIncrease += $tom_percent_change;
+                        $nextDayIncrease ++;
                         $sumOfIncreases += $tom_percent_change;
-                        $total = 0;
+
                         $total++;
                     } elseif ($tom_percent_change < 0) {
                         $nextDayDecrease++;
                         $sumOfDecreases += $tom_percent_change;
-                        $total = 0;
+
                         $total++;
                     } else {
                         $nextDayNoChange++;
