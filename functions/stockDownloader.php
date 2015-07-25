@@ -1,5 +1,5 @@
 <?php
-require('includes/connect.php');
+require('../includes/connect.php');
 
 function createURL($ticker)
 {
@@ -101,14 +101,14 @@ function fileToDatabase($txtfile, $tablename)
 function main()
 {
 
-    $mainTickerFile = fopen("tickerMaster.txt", "r");
+    $mainTickerFile = fopen("../tickerMaster.txt", "r");
 
     while (!feof($mainTickerFile)) {
         $companyTicker = fgets($mainTickerFile);
         $companyTicker = trim($companyTicker);
 
         $fileURL         = createURL($companyTicker);
-        $companyTextFile = "TextFiles/" . $companyTicker . ".txt";
+        $companyTextFile = "../TextFiles/" . $companyTicker . ".txt";
 
         getCsvFile($fileURL, $companyTextFile);
 
@@ -119,8 +119,8 @@ function main()
 
 
 function createTable($tablename){
-  require 'includes/connect.php';
-  $mainTickerFile = fopen("tickerMaster.txt", "r");
+  require '../includes/connect.php';
+  $mainTickerFile = fopen("../tickerMaster.txt", "r");
 
   while (!feof($mainTickerFile)) {
       $companyTicker = fgets($mainTickerFile);
