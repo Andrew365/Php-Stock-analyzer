@@ -20,19 +20,19 @@ require'templates/master.php';
     <div id="adder">
       <form class="" action="functions/addToTextFile.php" method="post">
         <input type="text" name="newTicker" value="">
-        <input type="submit" name="submit" value="Add Ticker">
+        <input class="btn btn-primary" type="submit" name="submit" value="Add Ticker">
       </form>
     </div>
 
     <div id="downloader">
       <form class="" action="functions/stockDownloader.php" method="post">
-          <input type="submit" name="download" value="Download Stock Data">
+          <input class="btn btn-primary" type="submit" name="download" value="Download Stock Data">
       </form>
     </div>
 
     <div id="analyze_a">
       <form class="" action="analysis/analysis_a.php" method="post">
-        <input type="submit" name="analyze" value="Analyze data with algorithm A">
+        <input class="btn btn-primary" type="submit" name="analyze" value="Analyze data with algorithm A">
       </form>
     </div>
 
