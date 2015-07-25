@@ -1,6 +1,5 @@
 <?php
 require('../includes/connect.php');
-
 function createURL($ticker)
 {
 
@@ -110,6 +109,16 @@ function main()
         $fileURL         = createURL($companyTicker);
         $companyTextFile = "../TextFiles/" . $companyTicker . ".txt";
 
+        //  $pattern='/[a-zA-Z.]+/';
+        //  $s_symbol   = $companyTicker;
+        // $match = preg_match_all($pattern,$s_symbol,$matches1);
+        //  if($match){
+        //    return true;
+        //  }else{
+        //    echo "Bad Ticker";
+        //    return false;
+        //  }
+
         getCsvFile($fileURL, $companyTextFile);
 
         fileToDatabase($companyTextFile, $companyTicker);
@@ -141,5 +150,15 @@ function createTable($tablename){
   }
 
 }
-main();
+
+    if(isset($_POST['download'])){
+      main();
+    //  header('Location: ../index.php');
+    }else{
+    main();
+  }
+
+
+
+
 ?>

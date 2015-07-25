@@ -16,6 +16,8 @@ function masterLoop(){
         $sumOfIncreases = 0;
         $sumOfDecreases = 0;
 
+
+
         $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
 
         $sql = "SELECT date, amount_change, percent_change FROM {$ticker}"; //WHERE percent_change < '0' ORDER BY date AS ASC";
@@ -37,7 +39,7 @@ function masterLoop(){
 
                     $row2 = mysqli_fetch_row($data2);
                     $tom_date = $row2[0];
-                    $tom_percent_change = $row[2];
+                    $tom_percent_change = $row[1];
 
                     if ($tom_percent_change > 0) {
                         $nextDayIncrease += $tom_percent_change;
@@ -68,8 +70,8 @@ function masterLoop(){
         $nextDayIncreasePercent = ($nextDayIncrease/$total) * 100;
         $nextDayDecreasePercent = ($nextDayDecrease/$total) * 100;
 
-        $averageIncreasePercent = $nextDayIncreasePercent/$nextDayIncrease;
-        $averageDecreasePercent = $sumOfDecreases/$nextDayDecrease;
+        $averageIncreasePercent = ( $nextDayIncreasePercent/$nextDayIncrease);
+        $averageDecreasePercent = ($sumOfDecreases/$nextDayDecrease);
 
         insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent);
     }
