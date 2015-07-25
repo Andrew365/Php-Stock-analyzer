@@ -13,6 +13,11 @@ require 'includes/connect.php';
   //  $sql = "SELECT date, amount_change, percent_change FROM {$ticker}"; //WHERE percent_change < '0' ORDER BY date AS ASC";
   $sql = "SELECT ticker, daysInc, pctOfDaysInc, avgIncPct, daysDec, pctOfDaysDec, avgDecPct, BuyValue, SellValue FROM {$algo_name}";
   $data = mysqli_query($connect, $sql);
+  if(!$data){
+    echo "No tickers ";
+    return false;
+  }
+
   while($row = mysqli_fetch_array($data)){
     $ticker = $row['ticker'];
     $daysInc = $row['daysInc'];
@@ -50,6 +55,6 @@ require 'includes/connect.php';
           </tr>
 
         </table>';
-
-  }
+      }
+  
 }

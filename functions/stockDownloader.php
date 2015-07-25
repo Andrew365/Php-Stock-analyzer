@@ -119,7 +119,11 @@ function main()
         //    return false;
         //  }
 
-        getCsvFile($fileURL, $companyTextFile);
+      $file =  getCsvFile($fileURL, $companyTextFile);
+        // if(!$file){
+        //   echo 'bad ticker';
+        //   return false;
+        // }
 
         fileToDatabase($companyTextFile, $companyTicker);
     }
@@ -150,15 +154,5 @@ function createTable($tablename){
   }
 
 }
-
-    if(isset($_POST['download'])){
-      main();
-    //  header('Location: ../index.php');
-    }else{
-    main();
-  }
-
-
-
-
+  main();
 ?>

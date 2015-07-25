@@ -36,7 +36,7 @@ require'templates/master.php';
     <!-- END OF FORMS -->
 
       <div class="container">
-        <h4>Stocks</h4>
+        <h3>Stocks</h3>
         <hr />
         <?php
           require 'functions/showTickers.php';

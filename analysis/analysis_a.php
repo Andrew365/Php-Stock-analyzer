@@ -72,6 +72,7 @@ function masterLoop(){
 
         $averageIncreasePercent = ( $nextDayIncreasePercent/$nextDayIncrease);
         $averageDecreasePercent = ($sumOfDecreases/$nextDayDecrease);
+        
 
         insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent);
     }
