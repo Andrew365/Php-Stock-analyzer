@@ -14,8 +14,10 @@ require'templates/master.php';
     <!-- Add Tickers To Text File Form -->
         <div id="adder">
           <form class="" action="functions/addToTextFile.php" method="post">
+            <div class="form-group">
             <input class="btn btn-primary" type="submit" name="submit" value="Add Ticker">
-            <input type="text" name="newTicker" value="">
+            <input class="form-group" type="text" name="newTicker" value="">
+          </div>
           </form>
         </div>
 

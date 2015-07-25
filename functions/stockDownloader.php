@@ -8,25 +8,23 @@ function createURL($ticker)
     $curDay   = date("j");
     $curYear  = date("Y");
 
+//this is in addToTextFile.php too, so youll need to change it there too.
+
     $fromMonth = 6; //this will be one more than said
     $fromDay   = 1;
     $fromYear  = 2015;
 
     $file = "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
-    $file_headers = @get_headers($file);
-    if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-        $exists = false;
-    }
-    else {
-        $exists = true;
-    }
-    if($exists){
+    // if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+    //     require 'errors.php';
+    //     $error = new error();
+    //     $error->fileNotFound();
+    //     return false;
+    // }
+    // else {
+    //     return $file;
+    // }
     return $file;
-  }else {
-    require 'errors.php';
-    $error = new error();
-    $error->fileNotFound();
-  }
 }
 
 

@@ -1,2 +1,6 @@
 WMT
 TSLA
+MSFT
+SBUX
+F
+BA
