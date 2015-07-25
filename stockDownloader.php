@@ -13,6 +13,7 @@ function createURL($ticker)
     $fromDay   = 1;
     $fromYear  = 2015;
 
+    
     return "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
 }
 
