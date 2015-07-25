@@ -58,7 +58,7 @@ function fileToDatabase($txtfile, $tablename)
         if (!$result) {
 
             if ($result2) {
-                echo 'createed tables' . '<br />';
+                echo 'created tables' . '<br />';
             } else {
                 echo '<br />' . 'hit !result thing';
             }
