@@ -13,7 +13,7 @@ function createURL($ticker)
     $fromDay   = 1;
     $fromYear  = 2015;
 
-    
+
     return "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
 }
 
@@ -48,6 +48,8 @@ function fileToDatabase($txtfile, $tablename)
         $change         = $close - $open;
         $percent_change = ($change / $open) * 100;
 
+        createTable($tablename);
+
         $sql     = "SELECT * FROM {$tablename}";
         $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
         $result  = mysqli_query($connect, $sql);
@@ -55,17 +57,11 @@ function fileToDatabase($txtfile, $tablename)
 
         //creates table if one doesnt exist
         if (!$result) {
-            $sql2    = "CREATE TABLE IF NOT EXISTS {$tablename}(date DATE,
-                PRIMARY KEY(date),
-                open FLOAT, high FLOAT,
-                 low FLOAT, close FLOAT,
-                  volume INT, amount_change FLOAT,
-                  percent_change FLOAT )";
-            $result2 = mysqli_query($connect, $sql2);
+
             if ($result2) {
-                echo 'success' . '<br />';
+                echo 'createed tables' . '<br />';
             } else {
-                echo '<br />' . "error with the tables " . '<br />' . mysqli_error($connect) . '<br />';
+                echo '<br />' . 'hit !result thing';
             }
 
 
@@ -121,5 +117,29 @@ function main()
 
 }
 
+
+function createTable($tablename){
+  require 'includes/connect.php';
+  $mainTickerFile = fopen("tickerMaster.txt", "r");
+
+  while (!feof($mainTickerFile)) {
+      $companyTicker = fgets($mainTickerFile);
+      $companyTicker = trim($companyTicker);
+
+      $sql2    = "CREATE TABLE IF NOT EXISTS {$companyTicker}(date DATE,
+          PRIMARY KEY(date),
+          open FLOAT, high FLOAT,
+           low FLOAT, close FLOAT,
+            volume INT, amount_change FLOAT,
+            percent_change FLOAT )";
+      $result2 = mysqli_query($connect, $sql2);
+      if($result2){
+        echo 'db created';
+      }else{
+        echo mysqli_error($connect);
+      }
+  }
+
+}
 main();
 ?>
