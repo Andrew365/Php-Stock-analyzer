@@ -12,8 +12,21 @@ function createURL($ticker)
     $fromDay   = 1;
     $fromYear  = 2015;
 
-
-    return "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
+    $file = "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
+    $file_headers = @get_headers($file);
+    if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+        $exists = false;
+    }
+    else {
+        $exists = true;
+    }
+    if($exists){
+    return $file;
+  }else {
+    require 'errors.php';
+    $error = new error();
+    $error->fileNotFound();
+  }
 }
 
 
@@ -120,10 +133,6 @@ function main()
         //  }
 
       $file =  getCsvFile($fileURL, $companyTextFile);
-        // if(!$file){
-        //   echo 'bad ticker';
-        //   return false;
-        // }
 
         fileToDatabase($companyTextFile, $companyTicker);
     }
