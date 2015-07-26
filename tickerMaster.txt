@@ -4,3 +4,4 @@ MSFT
 SBUX
 F
 BA
+AAPL
