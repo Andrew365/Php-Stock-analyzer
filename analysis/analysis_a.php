@@ -1,6 +1,6 @@
 <?php
 include('../includes/connect.php');
-
+require '../functions/stockDownloader.php';
 
 //Algorithm that checks if price goes up after going down
 function masterLoop(){
@@ -11,7 +11,7 @@ function masterLoop(){
 
     while($row = mysqli_fetch_array($ticker_result)){
       $ticker = $row['ticker'];
-        
+
 
         $nextDayIncrease = 0;
         $nextDayDecrease = 0;
@@ -28,7 +28,7 @@ function masterLoop(){
         $data = mysqli_query($connect, $sql);
 
         if($data){
-            echo "query successful" . '<br />';
+            
             while($row = mysqli_fetch_array($data)){
 
                 $date = $row['date'];
@@ -79,6 +79,7 @@ function masterLoop(){
 
 
         insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent);
+        header('Location: ../index.php');
     }
 }
 

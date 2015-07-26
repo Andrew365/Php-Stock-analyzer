@@ -66,7 +66,7 @@ function fileToDatabase($txtfile, $tablename)
             ini_set('max_execution_time', 60); //300 seconds = 5 minutes
 
             if ($result3) {
-                echo 'success with insertion';
+
             } else {
                 echo '<br />' . "error with the database " . mysqli_error($connect);
             }
@@ -79,7 +79,7 @@ function fileToDatabase($txtfile, $tablename)
             ini_set('max_execution_time', 60); //300 seconds = 5 minutes
 
             if ($result3) {
-                echo '<br/> success with insertion update <br/>';
+
             } else {
                 echo '<br />' . "error with the database " . mysqli_error($connect);
             }
@@ -108,7 +108,7 @@ function createTable($tablename){
             percent_change FLOAT )";
       $result2 = mysqli_query($connect, $sql2);
       if($result2){
-        echo 'table created';
+        
       }else{
         echo mysqli_error($connect);
       }
@@ -136,5 +136,5 @@ function main()
 
 
 }
-  main();
+main();
 ?>

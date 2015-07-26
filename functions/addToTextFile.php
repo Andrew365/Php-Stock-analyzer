@@ -1,5 +1,4 @@
 <?php
-require 'stockDownloader.php';
 
 $curMonth = date("n");
 $curMonth = $curMonth - 1;
@@ -35,11 +34,10 @@ if(isset($_POST['newTicker']) && isset($_POST['submit'])) {
     $sql2 = "INSERT INTO tickers (ticker) VALUES ('$ticker')";
     $insert_query = mysqli_query($connect, $sql2);
     if($insert_query){
-      echo 'ticker insert succesfully';
+      echo 'ticker inserted succesfully';
     }elseif(!$insert_query){
       echo mysqli_error($connect);
     }
-
+    include '../analysis/analysis_a.php';
 }
-
 }
