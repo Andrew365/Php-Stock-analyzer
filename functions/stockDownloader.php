@@ -52,21 +52,12 @@ function fileToDatabase($txtfile, $tablename)
         createTable($tablename);
 
         $sql     = "SELECT * FROM {$tablename}";
-        $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
+        require '../includes/connect.php';
         $result  = mysqli_query($connect, $sql);
 
 
         //creates table if one doesnt exist
         if (!$result) {
-
-            if ($result2) {
-                echo 'created tables' . '<br />';
-            } else {
-                echo '<br />' . 'hit !result thing';
-            }
-
-
-
 
             $sql3    = "INSERT INTO {$tablename} (date, open, high, low, close, volume, amount_change, percent_change)
         VALUES ('$date','$open','$high','$low','$close','$volume','$change','$percent_change')";
