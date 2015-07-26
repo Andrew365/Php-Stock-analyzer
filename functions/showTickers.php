@@ -7,9 +7,23 @@ require 'includes/connect.php';
     echo "No tickers ";
     return false;
   }
-
+  echo '<table class="table">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Days Inc</th>
+          <th>pctOfDaysInc</th>
+          <th>avgIncPct</th>
+          <th>daysDec</th>
+          <th>pctOfDaysDec</th>
+          <th>avgDecPct</th>
+          <th>BuyValue</th>
+          <th>SellValue</th>
+        </tr>
+      </thead>';
 
   while($row = mysqli_fetch_array($data)){
+    $i = 0;
     $ticker = $row['ticker'];
     $daysInc = $row['daysInc'];
     $pctOfDaysInc = $row['pctOfDaysInc'];
@@ -19,24 +33,9 @@ require 'includes/connect.php';
     $avgDecPct = $row['avgDecPct'];
     $BuyValue = $row['BuyValue'];
     $SellValue = $row['SellValue'];
+
 //Show data in index
 
-  do{
-    echo '<table class="table">
-        <thead>
-          <tr>
-            <th>Ticker</th>
-            <th>Days Inc</th>
-            <th>pctOfDaysInc</th>
-            <th>avgIncPct</th>
-            <th>daysDec</th>
-            <th>pctOfDaysDec</th>
-            <th>avgDecPct</th>
-            <th>BuyValue</th>
-            <th>SellValue</th>
-          </tr>
-        </thead>';
-      }while(1 ==2);
       echo '
       <tr>
         <td>' . $ticker .'</td>' .
@@ -48,9 +47,12 @@ require 'includes/connect.php';
         '<td>' . $avgDecPct .'</td>' .
         '<td>' . $BuyValue .'</td>' .
         '<td>' . $SellValue .'</td>
-          </tr>
+         <td> <form class="" action="functions/deleteStock.php" method="post">
+             <input class="btn btn-primary" type="submit" name="delete" value="Delete">
+           </form>
+          <td>
+        </tr>';
 
-        </table>';
       }
-
+echo '</table>';
 }
