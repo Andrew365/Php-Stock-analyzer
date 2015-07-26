@@ -1,0 +1,56 @@
+.content{
+  position: relative;
+  overflow: hidden;
+}
+#splashpage{
+background: linear-gradient(rgba(197, 197, 211,0.7), rgba(197, 197, 211,0.7)),
+url('../../images/street2.jpg') center center no-repeat fixed;
+position: relative;
+position: top center;
+height: auto 500px;
+background-attachment: fixed;
+}
+#screen{
+float: left;
+
+}
+#flat{
+  position: top right
+  float: right;
+  left: 400px;
+  height: 300px;
+  width: 400px;
+  position: absolute;
+}
+
+#title{
+  font-size: 4em;
+  text-align: center;
+  font-weight: 300;
+  padding-top: 250px;
+  padding-bottom: 250px;
+
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+#PHP{
+float:left;
+}
+
+#linkbar{
+  background-color: rgba(176, 176, 187, 0.5);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+}
+.footer{
+  background-color: black;
+  color: white;
+  padding: 40px ;
+  position: fixed;
+  position: bottom center;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  background-attachment: fixed;
+  overflow: hidden;
+}
