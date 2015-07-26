@@ -1,7 +1,7 @@
 <?php
 function showTickers($algo_name){
 require 'includes/connect.php';
-  $sql = "SELECT ticker, daysInc, pctOfDaysInc, avgIncPct, daysDec, pctOfDaysDec, avgDecPct, BuyValue, SellValue FROM {$algo_name}";
+  $sql = "SELECT ticker, daysInc, pctOfDaysInc, avgIncPct, daysDec, pctOfDaysDec, avgDecPct, BuyValue, SellValue FROM {$algo_name} ORDER BY ticker ASC";
   $data = mysqli_query($connect, $sql);
   if(!$data){
     echo "No tickers ";
@@ -48,6 +48,7 @@ require 'includes/connect.php';
         '<td>' . $BuyValue .'</td>' .
         '<td>' . $SellValue .'</td>
          <td> <form class="" action="functions/deleteStock.php" method="post">
+              <input class="btn btn-primary" type="hidden" name="ticker" value="'.$ticker .'">
              <input class="btn btn-primary" type="submit" name="delete" value="Delete">
            </form>
           <td>

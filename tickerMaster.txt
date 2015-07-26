@@ -5,3 +5,5 @@ SBUX
 F
 BA
 AAPL
+SBUX
+YHOO

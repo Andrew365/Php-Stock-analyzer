@@ -2,11 +2,11 @@
 <div id="link-bar">
   <ul class="list-inline">
     <li>
-    <div id="adder">
+    <div id="adder" class="form-inline">
       <form class="" action="functions/addToTextFile.php" method="post">
         <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="submit" value="Add Ticker">
-        <input class="form-group" type="text" name="newTicker" value="">
+        <input class="btn btn-primary" id="tickeradd" type="submit" name="submit" value="Add Ticker">
+        <input class="form-control" id="tickersub" type="text" name="newTicker" value="">
       </div>
       </form>
     </div>
