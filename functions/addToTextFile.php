@@ -22,16 +22,24 @@ return false;
 else {
 //everything went fine
 if(isset($_POST['newTicker']) && isset($_POST['submit'])) {
-    $data = "\n" . $_POST['newTicker'];
-    $ret = file_put_contents('../tickerMaster.txt', $data, FILE_APPEND | LOCK_EX);
-    if($ret === false) {
-        die('There was an error writing this file');
+    require '../includes/connect.php';
+
+    $sql = "SELECT * FROM tickers";
+    $result = mysqli_query($connect, $sql);
+    if(!$result){
+      $sql_table = "CREATE TABLE IF NOT EXISTS tickers(
+        ticker VARCHAR(8)
+      )";
+      $table_result = mysqli_query($connect, $sql_table);
     }
-    else {
-        echo "$ret bytes written to file";
+    $sql2 = "INSERT INTO tickers (ticker) VALUES ('$ticker')";
+    $insert_query = mysqli_query($connect, $sql2);
+    if($insert_query){
+      echo 'ticker insert succesfully';
+    }elseif(!$insert_query){
+      echo mysqli_error($connect);
     }
+
 }
-else {
-   die('no post data to process');
-}
+
 }

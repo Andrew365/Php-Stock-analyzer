@@ -4,10 +4,14 @@ include('../includes/connect.php');
 
 //Algorithm that checks if price goes up after going down
 function masterLoop(){
-    $mainTickerFile = fopen("../tickerMaster.txt", "r");
-    while(!feof($mainTickerFile)){
-        $ticker = fgets($mainTickerFile);
-        $ticker = trim($ticker);
+  require '../includes/connect.php';
+    $mainTickerSQL = "SELECT * FROM tickers";
+    $ticker_result = mysqli_query($connect, $mainTickerSQL);
+
+
+    while($row = mysqli_fetch_array($ticker_result)){
+      $ticker = $row['ticker'];
+        
 
         $nextDayIncrease = 0;
         $nextDayDecrease = 0;
@@ -72,7 +76,7 @@ function masterLoop(){
 
         $averageIncreasePercent = ( $nextDayIncreasePercent/$nextDayIncrease);
         $averageDecreasePercent = ($sumOfDecreases/$nextDayDecrease);
-        
+
 
         insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent);
     }

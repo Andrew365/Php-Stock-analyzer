@@ -1,7 +1,0 @@
-F
-BA
-MSFT
-GOOG
-DIS
-NKE
-AAPL

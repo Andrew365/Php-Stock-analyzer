@@ -3,10 +3,11 @@ function showTickers($algo_name){
 require 'includes/connect.php';
   $sql = "SELECT ticker, daysInc, pctOfDaysInc, avgIncPct, daysDec, pctOfDaysDec, avgDecPct, BuyValue, SellValue FROM {$algo_name} ORDER BY ticker ASC";
   $data = mysqli_query($connect, $sql);
-  if(!$data){
-    echo "No tickers ";
-    return false;
-  }
+
+  $check_q = "SELECT * FROM tickers WHERE ticker IS NOT NULL";
+  $check_r = mysqli_query($connect, $check_q);
+  $row_c = mysqli_fetch_array($check_r, MYSQLI_ASSOC);
+
   echo '
   <table class="table">
   <div id="table_header">
@@ -24,6 +25,7 @@ require 'includes/connect.php';
         </tr>
       </thead>
       </div>';
+
 
   while($row = mysqli_fetch_array($data)){
     $i = 0;
@@ -58,5 +60,10 @@ require 'includes/connect.php';
         </tr>';
 
       }
+
 echo '</table>';
+if(!$row_c){
+  echo "No Tickers";
+  return false;
+}
 }

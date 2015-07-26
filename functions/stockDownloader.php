@@ -99,36 +99,15 @@ function fileToDatabase($txtfile, $tablename)
 }
 
 
-function main()
-{
-
-    $mainTickerFile = fopen("../tickerMaster.txt", "r");
-
-
-    while (!feof($mainTickerFile)) {
-        $companyTicker = fgets($mainTickerFile);
-        $companyTicker = trim($companyTicker);
-
-
-        $fileURL         = createURL($companyTicker);
-        $companyTextFile = "../TextFiles/" . $companyTicker . ".txt";
-
-      $file =  getCsvFile($fileURL, $companyTextFile);
-
-        fileToDatabase($companyTextFile, $companyTicker);
-    }
-
-
-}
-
 
 function createTable($tablename){
   require '../includes/connect.php';
-  $mainTickerFile = fopen("../tickerMaster.txt", "r");
+    $mainTickerSQL = "SELECT * FROM tickers";
+    $ticker_result = mysqli_query($connect, $mainTickerSQL);
 
-  while (!feof($mainTickerFile)) {
-      $companyTicker = fgets($mainTickerFile);
-      $companyTicker = trim($companyTicker);
+
+    while($row = mysqli_fetch_array($ticker_result)){
+      $companyTicker = $row['ticker'];
 
       $sql2    = "CREATE TABLE IF NOT EXISTS {$companyTicker}(date DATE,
           PRIMARY KEY(date),
@@ -138,11 +117,32 @@ function createTable($tablename){
             percent_change FLOAT )";
       $result2 = mysqli_query($connect, $sql2);
       if($result2){
-        echo 'db created';
+        echo 'table created';
       }else{
         echo mysqli_error($connect);
       }
   }
+
+}
+
+function main()
+{
+  require '../includes/connect.php';
+    $mainTickerSQL = "SELECT * FROM tickers";
+    $ticker_result = mysqli_query($connect, $mainTickerSQL);
+
+
+    while($row = mysqli_fetch_array($ticker_result)){
+
+        $companyTicker = $row['ticker'];
+        $fileURL         = createURL($companyTicker);
+        $companyTextFile = "../TextFiles/" . $companyTicker . ".txt";
+
+      $file =  getCsvFile($fileURL, $companyTextFile);
+
+        fileToDatabase($companyTextFile, $companyTicker);
+    }
+
 
 }
   main();
