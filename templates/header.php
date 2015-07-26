@@ -6,7 +6,7 @@
       <form class="" action="functions/addToTextFile.php" method="post">
         <div class="form-group">
         <input class="btn btn-primary" id="tickeradd" type="submit" name="submit" value="Add Ticker">
-        <input class="form-control" id="tickersub" type="text" name="newTicker" value="">
+        <input class="form-control" id="tickersub" type="text" name="newTicker" value="" autocomplete="off">
       </div>
       </form>
     </div>

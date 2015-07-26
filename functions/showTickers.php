@@ -7,7 +7,9 @@ require 'includes/connect.php';
     echo "No tickers ";
     return false;
   }
-  echo '<table class="table">
+  echo '
+  <table class="table">
+  <div id="table_header">
       <thead>
         <tr>
           <th>Ticker</th>
@@ -20,7 +22,8 @@ require 'includes/connect.php';
           <th>BuyValue</th>
           <th>SellValue</th>
         </tr>
-      </thead>';
+      </thead>
+      </div>';
 
   while($row = mysqli_fetch_array($data)){
     $i = 0;

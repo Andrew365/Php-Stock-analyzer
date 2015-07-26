@@ -15,15 +15,6 @@ function createURL($ticker)
     $fromYear  = 2015;
 
     $file = "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
-    // if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-    //     require 'errors.php';
-    //     $error = new error();
-    //     $error->fileNotFound();
-    //     return false;
-    // }
-    // else {
-    //     return $file;
-    // }
     return $file;
 }
 
@@ -113,27 +104,20 @@ function main()
 
     $mainTickerFile = fopen("../tickerMaster.txt", "r");
 
+
     while (!feof($mainTickerFile)) {
         $companyTicker = fgets($mainTickerFile);
         $companyTicker = trim($companyTicker);
 
+
         $fileURL         = createURL($companyTicker);
         $companyTextFile = "../TextFiles/" . $companyTicker . ".txt";
-
-        //  $pattern='/[a-zA-Z.]+/';
-        //  $s_symbol   = $companyTicker;
-        // $match = preg_match_all($pattern,$s_symbol,$matches1);
-        //  if($match){
-        //    return true;
-        //  }else{
-        //    echo "Bad Ticker";
-        //    return false;
-        //  }
 
       $file =  getCsvFile($fileURL, $companyTextFile);
 
         fileToDatabase($companyTextFile, $companyTicker);
     }
+
 
 }
 

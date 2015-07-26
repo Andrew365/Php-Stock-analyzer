@@ -17,6 +17,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 require 'errors.php';
 $error = new error();
 $error->fileNotFound();
+return false;
 }
 else {
 //everything went fine
