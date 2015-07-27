@@ -12,7 +12,7 @@ function deleteStock(){
 
      if($data){
 
-       header('Location: ../index.php');
+       header('Location: ../dashboard.php');
 
      }
      else{

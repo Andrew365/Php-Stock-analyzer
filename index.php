@@ -21,6 +21,15 @@ require'templates/master.php';
 
 <link rel="stylesheet" type="text/css" media="only screen and (min-width:100px) and
 (max-width: 299px)" href="public/stylesheets/100/index.css"/>
+<style media="screen">
+  #top{
+    padding-top: 12px;
+    padding-left: 1200px;
+  }
+  #info{
+    padding-bottom: 20px;
+  }
+</style>
 <!-- end of media queries -->
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>
@@ -40,7 +49,7 @@ $(window).scroll(function(){
 <nav class="navbar navbar-default navbar-fixed-top" id="top">
   <div id="links" class="container">
     <ul>
-      <li><a href="dashboard.php">Dashboard</a></li>
+      <li><a href="dashboard.php" >Dashboard</a></li>
     </ul>
   </div>
   </div>
@@ -56,7 +65,7 @@ $(window).scroll(function(){
   <!-- <div class="filler">
 
   </div> -->
-  <div class="container">
+  <div class="container" id="info">
      <h1>Stocks</h1>
      <hr/>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

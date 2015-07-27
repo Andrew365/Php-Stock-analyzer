@@ -28,7 +28,7 @@ function masterLoop(){
         $data = mysqli_query($connect, $sql);
 
         if($data){
-            
+
             while($row = mysqli_fetch_array($data)){
 
                 $date = $row['date'];
@@ -79,7 +79,7 @@ function masterLoop(){
 
 
         insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent);
-        header('Location: ../index.php');
+        header('Location: ../dashboard.php');
     }
 }
 
