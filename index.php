@@ -4,12 +4,8 @@ require'templates/master.php';
 
 ?>
 
-<!--<?php require 'app/views/master.php';?>
-<!-- old master media queries-->
-
-
 	<meta name="viewport" content="initial-scale=1">
-<!-- -->
+
 <!-- media queries  just for master-->
 <link rel="stylesheet" type="text/css" media="only screen and (min-width:980px) and
 (max-width: 2000px)" href="public/stylesheets/980/index.css"/>
@@ -41,6 +37,14 @@ $(window).scroll(function(){
 </head>
 
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" id="top">
+  <div id="links" class="container">
+    <ul>
+      <li><a href="dashboard.php">Dashboard</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
 
   <div id="splashpage">
 
@@ -53,7 +57,16 @@ $(window).scroll(function(){
 
   </div> -->
   <div class="container">
-    jlkasjdflsjflksdjfslkjflksjdflkjslfkj
+     <h1>Stocks</h1>
+     <hr/>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <h1>Tracking</h1>
+          <hr/>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <h1>Analytics</h1>
+    <hr/>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
 </div>
   <div class="footer">
     <h1>Footer</h1>

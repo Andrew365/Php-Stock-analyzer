@@ -1,35 +1,39 @@
+#top{
+  background-color: rgba(251, 251, 251, 0.7);
+}
+
 .content{
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 #splashpage{
-background: linear-gradient(rgba(197, 197, 211,0.7), rgba(197, 197, 211,0.7)),
-url('../../images/street2.jpg') center center no-repeat fixed;
+background: linear-gradient(rgba(197, 197, 211,0.3), rgba(197, 197, 211,0.5)),
+url('../../images/streetblur.jpg') center center no-repeat fixed;
 position: relative;
 position: top center;
-height: auto 100%;
+height: auto 400;
 background-attachment: fixed;
+overflow: hidden;
 }
 #screen{
 float: left;
 
 }
-
 #flat{
   position: top right
   float: right;
-  left: 400px;
+  left: 100%;
   height: 300px;
   width: 400px;
   position: absolute;
 }
 
 #title{
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
   font-weight: 300;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 250px;
+  padding-bottom: 250px;
 
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
@@ -44,14 +48,13 @@ float:left;
   padding-left: 10px;
 }
 .footer{
-  background-color: black;
-  color: white;
-  padding: 40px ;
-  position: fixed;
-  position: bottom center;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-  background-attachment: fixed;
-  overflow: hidden;
-}
+    background-color: black;
+    color: white;
+    padding: 40px;
+    position:sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background-attachment: fixed;
+    overflow: hidden;
+  }

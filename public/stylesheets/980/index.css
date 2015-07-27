@@ -1,6 +1,10 @@
+#top{
+  background-color: rgba(251, 251, 251, 0.7);
+}
+
 .content{
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 #splashpage{
 background: linear-gradient(rgba(197, 197, 211,0.3), rgba(197, 197, 211,0.5)),
@@ -44,14 +48,13 @@ float:left;
   padding-left: 10px;
 }
 .footer{
-  background-color: black;
-  color: white;
-  padding: 40px ;
-  position: fixed;
-  position: bottom center;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-  background-attachment: fixed;
-  overflow: hidden;
-}
+    background-color: black;
+    color: white;
+    padding: 40px;
+    position:sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
