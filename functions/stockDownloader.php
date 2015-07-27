@@ -3,16 +3,7 @@ require('../includes/connect.php');
 function createURL($ticker)
 {
 
-    $curMonth = date("n");
-    $curMonth = $curMonth - 1;
-    $curDay   = date("j");
-    $curYear  = date("Y");
-
-//this is in addToTextFile.php too, so youll need to change it there too.
-
-    $fromMonth = 6; //this will be one more than said
-    $fromDay   = 1;
-    $fromYear  = 2015;
+require '../includes/dates.php';
 
     $file = "http://real-chart.finance.yahoo.com/table.csv?s={$ticker}&d={$curMonth}&e={$curDay}&f={$curYear}&g=d&a={$fromMonth}&b={$fromDay}&c={$fromYear}&ignore=.csv";
     return $file;
@@ -108,7 +99,7 @@ function createTable($tablename){
             percent_change FLOAT )";
       $result2 = mysqli_query($connect, $sql2);
       if($result2){
-        
+
       }else{
         echo mysqli_error($connect);
       }

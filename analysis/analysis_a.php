@@ -22,7 +22,7 @@ function masterLoop(){
 
         $total = 0;
 
-        $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
+        require '../includes/connect.php';
 
         $sql = "SELECT date, amount_change, percent_change FROM {$ticker}"; //WHERE percent_change < '0' ORDER BY date AS ASC";
         $data = mysqli_query($connect, $sql);
@@ -88,8 +88,7 @@ function masterLoop(){
 //insert data into the result table
 function  insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePercent, $averageIncreasePercent, $nextDayDecrease, $nextDayDecreasePercent, $averageDecreasePercent){
 
-    $connect = mysqli_connect('localhost', 'Andrew', 'baseball365', 'stocks');
-
+    require '../includes/connect.php';
     $table_sql = "CREATE TABLE IF NOT EXISTS analysis_a (
                   ticker VARCHAR(8),
                   daysInc INTEGER,
@@ -101,7 +100,10 @@ function  insertIntoResultTable($ticker, $nextDayIncrease, $nextDayIncreasePerce
                   BuyValue FLOAT,
                   SellValue FLOAT
                    )";
-    mysqli_query($connect, $table_sql);
+    $table = mysqli_query($connect, $table_sql);
+    if(!$table){
+      echo 'cant create table' . mysqli_error($connect);
+    }
 
     $BuyValue = $nextDayIncreasePercent * $averageIncreasePercent;
     $SellValue = $nextDayDecreasePercent * $averageDecreasePercent;

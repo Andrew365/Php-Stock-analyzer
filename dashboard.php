@@ -12,7 +12,9 @@ require 'templates/header.php';
     </script>
   </head>
   <body>
+    <div id="error">
 
+    </div>
 
         <h1>Dashboard</h1>
       <div class="container">
@@ -21,6 +23,11 @@ require 'templates/header.php';
         <?php
           require 'functions/showTickers.php';
           showTickers('analysis_a');
+          if(isset($_POST['TNF'])){
+            echo '<script type="text/javascript">
+              $("#error").html("That ticker doesnt exist");
+            </script>';
+          }
         ?>
       </div>
   </body>
