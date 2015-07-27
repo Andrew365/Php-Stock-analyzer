@@ -5,8 +5,8 @@
     <div id="adder" class="form-inline">
       <form class="" action="functions/addToTextFile.php" method="post">
         <div class="form-group">
+            <input class="form-control" id="tickersub" type="text" name="newTicker" value="" autocomplete="off">
         <input class="btn btn-primary" id="tickeradd" type="submit" name="submit" value="Add Ticker">
-        <input class="form-control" id="tickersub" type="text" name="newTicker" value="" autocomplete="off">
       </div>
       </form>
     </div>
@@ -15,7 +15,7 @@
 <!-- Download the stock data -->
     <div id="downloader">
       <form class="" action="functions/stockDownloader.php" method="post">
-          <input class="btn btn-primary"  type="submit" name="download" value="Download Stock Data">
+          <input class="btn btn-primary"  type="hidden" name="download" value="Download Stock Data">
       </form>
     </div>
   </li>
@@ -23,7 +23,7 @@
 <!-- Analyse with algorithm a -->
     <div id="analyze_a">
       <form class="" action="analysis/analysis_a.php" method="post">
-        <input class="btn btn-primary"  name="analyze" type="submit" value="Analyze data with algorithm A">
+        <input class="btn btn-primary"  name="analyze" type="hidden" value="Analyze data with algorithm A">
       </form>
     </div>
   </li>

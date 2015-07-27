@@ -1,6 +1,8 @@
 <?php
 
 function deleteStock(){
+  if(isset($_POST['delete'])){
+
     require '../includes/connect.php';
     $file = "../tickerMaster.txt";
     $ticker = $_POST['ticker'];
@@ -31,5 +33,6 @@ function deleteStock(){
       echo mysqli_error($connect);
      }
 
+ }
  }
  deleteStock();

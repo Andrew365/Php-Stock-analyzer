@@ -43,6 +43,19 @@ $(window).scroll(function(){
 
 });
   </script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+	  $('#delete').submit(function{
+			if (confirm('Do you wanna to submit?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+		});
+	});
+	</script>
 </head>
 
 <body>

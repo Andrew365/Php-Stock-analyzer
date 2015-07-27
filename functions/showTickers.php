@@ -60,11 +60,17 @@ require 'includes/connect.php';
         '<td>' . $avgDecPct .'</td>' .
         '<td>' . $BuyValue .'</td>' .
         '<td>' . $SellValue .'</td>
-         <td> <form class="" action="functions/deleteStock.php" method="post">
-              <input class="btn btn-primary" type="hidden" name="ticker" value="'.$ticker .'">
-             <input class="btn btn-primary" type="submit" name="delete" value="Delete">
+         <td> <form class="" action="functions/deleteStock.php" method="post" id="delete">
+              <input class="btn btn-primary" id="tickerk" type="hidden" name="ticker" value="'.$ticker .'">
+             <input class="btn btn-danger" type="submit" name="delete" value="Delete">
            </form>
           <td>
+          <td>
+          <form class="" action="stockUpdater.php" method="post">
+            <input class="" type="hidden" name="ticker" value="'.$ticker .'">
+            <input class="btn btn-info" type="submit" name="delete" value="Update">
+          </form>
+          </td>
         </tr>';
 
       }
